@@ -1,0 +1,47 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #FAF9F8;
+	height:  100%;
+	width:  100%;
+	color:  #333333;
+	font-smooth: always;
+  scroll-behavior: smooth;
+	margin-top: 30px;
+}
+.todoApp h1 {
+  text-align: center !important;
+  width: 100% !important;
+  margin-top: 128px;
+  margin-bottom: 32px;
+}
+.todoApp {
+  width: 580px;
+}
+.mainCta {
+  margin-top: 24px;
+}
+input {
+  outline: none !important;
+  width: 100%;
+}
+input:focus {
+  border: solid 1px #000000;
+}
+.task-list li {
+  cursor: pointer;
+}
+.task-list li:hover {
+  background-color: #f7f7f7;
+}
+
+.todoApp {
+  width: 100% !important;
+}
+.todoApp {
+  width: 100% !important;
+  position: fixed;
+  top: -100px !important;
+  right: 0; 
+  left: 0;
+}
