@@ -35,7 +35,7 @@ function Nav() {
             <h1>Monthly</h1>
             <h1>Anually</h1>
             <h1>Bucket List</h1>
-            <h1>Notes</h1>
+            <h1>Notepad</h1>
             <h1>Mission Logs</h1>
           </div>
         </div>
