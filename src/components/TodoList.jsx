@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import Nav from './Nav';
 import LevelTracker from './LevelTracker';
+import HeaderHero from './HeaderHero';
 import Confetti from 'react-confetti';
 
 const TimerWheel = ({ timeEstimate, startTime }) => {
@@ -143,8 +144,7 @@ const TodoList = () => {
     <div className="container todoApp" style={{ maxWidth: '580px', margin: '0 auto !important', width: '100%' }}>
       {showConfetti && <Confetti />}
       <LevelTracker experience={stars} />
-      <div className="beatingIcon"><i className="fa-solid fa-face-saluting fa-beat"></i></div>
-      <h1>How many stars are you going to earn today?</h1>
+      <HeaderHero />>
       <div className="input-group mb-3">
         <input type="text" className="form-control" placeholder="What's the mission?" value={task} onChange={(e) => setTask(e.target.value)} style={{ width: '100%' }} />
         <input
