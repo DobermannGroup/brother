@@ -7,7 +7,7 @@ class BeatingIconComponent extends React.Component {
                 <div className="beatingIcon">
                     <i className="fa-solid fa-face-saluting fa-beat"></i>
                 </div>
-                <h1>How many stars are you going to earn today?</h1>
+                <h1>Hey! How many stars are you going to earn today?</h1>
             </div>
         );
     }
