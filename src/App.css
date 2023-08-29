@@ -39,7 +39,10 @@ body {
 .labelPortal {
   text-align: left !important;
 }
-
+.completedTask {
+  border: solid 1px #ffffff !important;
+  cursor: not-allowed;
+}
 .todoApp {
   width: 580px;
 }
