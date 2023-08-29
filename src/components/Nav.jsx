@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-function Nav() {
+function Nav({ onNavClick }) {
+
   const [isActive, setIsActive] = useState(false);
 
   const handleToggle = (e) => {
@@ -21,6 +22,13 @@ function Nav() {
     };
   }, [isActive]);
 
+  const handleNavItemClick = (label) => {
+    if (onNavClick) {
+      onNavClick(label);
+    }
+    setIsActive(false); // Close the nav after selection
+  };
+
   return (
     <>
       <div
@@ -30,14 +38,11 @@ function Nav() {
         <div className="compassModel">
           <i className="fa-duotone fa-compass"></i>
           <div className={`navBox ${isActive ? 'open' : 'hidden'}`}>
-            <h1>Today</h1>
-            <h1>Weekly</h1>
-            <h1>Monthly</h1>
-            <h1>Anually</h1>
-            <h1>Bucket List</h1>
-            <h1>Notes</h1>
-            <h1>Mission Logs</h1>
-            <h1>Calendar</h1>
+            <ul>
+              {['Today', 'Weekly', 'Monthly', 'Annually', 'Bucket List', 'Mission logs'].map(label => (
+                <li key={label} onClick={() => handleNavItemClick(label)}>{label}</li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

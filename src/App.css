@@ -83,7 +83,21 @@ body {
   opacity: 1;
   transition: .4s;
 }
-
+.compassModel ul {
+  list-style-type: none;
+  width: 100% !important;
+}
+.compassModel ul li {
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+  width: 100%;
+  width: 160px;
+  text-align: left;
+  height: auto !important;
+  line-height: 24px;
+  margin-bottom: 24px;
+}
 .toggleDirection:active {
   opacity: 1;
   transition: .4s;
@@ -193,7 +207,7 @@ button:focus {
 }
 .level-tracker {
   /* Add styling for the container, e.g., padding, alignment */
-  z-index: 9999999;
+  z-index: 99999999 !important;
 }
 .progress {
   background-color: #151916 !important;
@@ -393,7 +407,7 @@ select.urgency-dropdown option[value="red"] {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 9999999999999999999999999 !important;
+  z-index: 99999999999999999999 !important;
   padding-bottom: 128px;
 }
 .configHub button {

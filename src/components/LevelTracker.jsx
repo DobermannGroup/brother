@@ -11,16 +11,23 @@ const UKMilitaryRanks = [
 
 const LevelTracker = ({ experience }) => {
   const numRanks = UKMilitaryRanks.length;
-  const LEVELS = Array.from({ length: numRanks }, (_, i) => (350000 / (numRanks - 1)) * i);
-  const currentLevel = LEVELS.findIndex(level => experience < level) - 1;
-  const nextLevelExp = LEVELS[currentLevel + 1];
-  const nextRank = UKMilitaryRanks[currentLevel + 1] || 'Max Rank';
-  const starsRemaining = Math.round(nextLevelExp - experience); // Round to the nearest whole number
-  const percentageProgress = Math.round((experience / nextLevelExp) * 100);
+  const LEVELS = Array.from({ length: numRanks }, (_, i) => (500000 / (numRanks - 1)) * i);
   
+  const currentLevel = Math.max(LEVELS.findIndex(level => experience < level) - 1, 0); // Ensure non-negative
+
+  const prevLevelExp = LEVELS[currentLevel] || 0;  // If undefined or null, default to 0
+  const nextLevelExp = LEVELS[currentLevel + 1] || LEVELS[LEVELS.length - 1]; // Default to last level if undefined
+
+  const experienceAtCurrentLevel = experience - prevLevelExp;
+  const requiredExpForNextLevel = nextLevelExp - prevLevelExp;
+  
+  const percentageProgress = Math.round((experienceAtCurrentLevel / requiredExpForNextLevel) * 100);
+  const starsRemaining = Math.round(nextLevelExp - experience);
+  const nextRank = UKMilitaryRanks[currentLevel + 1] || 'Max Rank'; // Ensure we don't go out of bounds
+
   return (
     <div className="level-tracker">
-      <h3>{UKMilitaryRanks[currentLevel]} <i className="fa-sharp fa-solid fa-star"></i> {Math.round(experience)}</h3> {/* Round to the nearest whole number */}
+      <h3>{UKMilitaryRanks[currentLevel]} <i className="fa-sharp fa-solid fa-star"></i> {Math.round(experience)}</h3>
       <div className="progress">
         <div className="progress-bar" style={{ width: `${percentageProgress}%` }} />
       </div>
