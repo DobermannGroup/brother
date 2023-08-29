@@ -119,7 +119,7 @@ const TodoList = () => {
       {showConfetti && <Confetti />}
       {showNotification && (
         <div className="notification">
-          Mission added
+          Roger that, new mission has been added to the {currentLabel} roadmap.
         </div>
       )}
       <audio ref={audioRef} src={soundFile} preload="auto"></audio>
@@ -139,6 +139,7 @@ const TodoList = () => {
           onExpireToggleChange={(e) => setExpireToggle(e.target.checked)}
           onAddTask={addTask}
       />
+      <h1 className="labelPortal">{currentLabel}</h1>
       <ul className="list-group task-list">
     {displayedTasks.map((task) => (
         <TaskItem 
