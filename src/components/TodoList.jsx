@@ -86,14 +86,21 @@ const TodoList = () => {
   const toggleTask = (index) => {
     setShowConfetti(true);
 
-    setTasks((prevTasks) => {
+    setTasks(prevTasks => {
         const newTasks = [...prevTasks];
-        const completedTask = newTasks.splice(index, 1)[0];
+        const completedTask = { ...newTasks.splice(index, 1)[0], completed: true };
 
-        setCompletedTasks(prevCompleted => [...prevCompleted, completedTask]);
+        // Move to completed tasks
+        setCompletedTasks(prevCompleted => {
+            if (!prevCompleted.some(prevTask => prevTask.timestamp === completedTask.timestamp)) {
+                return [...prevCompleted, completedTask];
+            }
+            return prevCompleted;
+        });
+
         const starsIncrement = calculateStars(completedTask);
         setStars(prevStars => prevStars + starsIncrement);
-        
+
         return newTasks;
     });
 
@@ -107,6 +114,7 @@ const TodoList = () => {
         });
     }
 };
+
 
 
 
