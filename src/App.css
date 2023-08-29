@@ -31,10 +31,13 @@ body {
 }
 
 .todoApp h1 {
-  text-align: center !important;
+  text-align: center;
   width: 100% !important;
   margin-top: 0px;
   margin-bottom: 32px;
+}
+.labelPortal {
+  text-align: left !important;
 }
 
 .todoApp {
@@ -233,7 +236,29 @@ button:focus {
   bottom: 16px;
   height: auto;
 }
+.notification {
+  /* From https://css.glass */
+  background: rgba(230, 145, 30, 0.26);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(15.2px);
+  border-radius: 16px;
+  -webkit-backdrop-filter: blur(15.2px);
+  width: 300px;
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  left: 24px;
+  color: #ffffff;
+  z-index: 99999999999;
+  text-shadow: 1px 1px #000000;
+  font-weight: 600;
+  font-size: 24px;
+  margin: 0 auto !important;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 16px;
 
+}
 .progress-bar {
   background-color: #E6911E !important;
   height: 20px;
