@@ -141,14 +141,16 @@ const TodoList = () => {
       />
       <h1 className="labelPortal">{currentLabel}</h1>
       <ul className="list-group task-list">
-    {displayedTasks.map((task) => (
+    {displayedTasks.map((task, index) => (
         <TaskItem 
             key={task.timestamp}
             task={task}
             toggleTask={currentLabel !== 'Mission logs' ? () => toggleTask(tasks.indexOf(task)) : null}
         />
     ))}
+    {displayedTasks.length === 0 && <div>You have no missions in this roadmap.</div>}
 </ul>
+
 
     </div>
   );
