@@ -46,6 +46,12 @@ body {
 .todoApp {
   width: 580px;
 }
+.clearMissions {
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  margin-bottom: 32px;
+}
 .missionStat {
   padding: 16px;
   border: solid 1px #333333;

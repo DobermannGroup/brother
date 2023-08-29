@@ -33,6 +33,12 @@ const TodoList = () => {
     return savedStars ? parseInt(savedStars, 10) : 0;
   });
 
+  const clearAllCompletedTasks = () => {
+    setCompletedTasks([]);
+    localStorage.setItem('completedTasks', JSON.stringify([])); // clear from local storage as well
+  };
+  
+
   const [showConfetti, setShowConfetti] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
   const audioRef = useRef(null);
@@ -154,6 +160,9 @@ const TodoList = () => {
           onAddTask={addTask}
       />
       <h1 className="labelPortal">{currentLabel}</h1>
+{currentLabel === 'Mission logs' && completedTasks.length > 0 && (
+    <button onClick={clearAllCompletedTasks} className="btn btn-danger clearMissions">Clear All</button>
+)}
       <ul className="list-group task-list">
     {displayedTasks.map((task) => (
         <TaskItem 
