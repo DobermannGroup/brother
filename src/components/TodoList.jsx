@@ -163,7 +163,7 @@ const TodoList = () => {
     )}
     <h1 className="labelPortal">{currentLabel}</h1>
     {currentLabel === 'Mission logs' && completedTasks.length > 0 && (
-        <button onClick={clearAllCompletedTasks} className="btn btn-danger">Clear All</button>
+        <button onClick={clearAllCompletedTasks} className="btn btn-danger clearMissions">Clear All</button>
     )}
     <ul className="list-group task-list">
         {displayedTasks.map((task) => (

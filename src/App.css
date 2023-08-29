@@ -8,6 +8,8 @@ body {
 	margin-top: 30px;
   height: auto;
   margin-bottom: 200px !important;
+  padding-top: 64px;
+  box-sizing: border-box;
 }
 .App {
   margin-left: 50px !important;
@@ -24,7 +26,7 @@ body {
 }
 
 .beatingIcon {
-  margin-top: 300px;
+  margin-top: 64px;
   text-align: center;
   font-size: 128px;
   margin-bottom: 32px;
