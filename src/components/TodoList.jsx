@@ -136,48 +136,48 @@ const TodoList = () => {
 
   return (
     <div className="container todoApp" style={{ maxWidth: '580px', margin: '0 auto !important', width: '100%' }}>
-      {showConfetti && <Confetti />}
-      {showNotification && (
+    {showConfetti && <Confetti />}
+    {showNotification && (
         <div className="notification">
-          Roger that, new mission has been added to the {currentLabel} roadmap.
+            Roger that, new mission has been added to the {currentLabel} roadmap.
         </div>
-      )}
-      <audio ref={audioRef} src={soundFile} preload="auto"></audio>
-      <audio ref={completeAudioRef} src={completeSoundFile} preload="auto"></audio>
-      
-      <LevelTracker experience={stars} />
-      <HeaderHero />
-      <Nav onNavClick={setCurrentLabel} />
-      <TaskInputForm 
-          task={task}
-          timeEstimate={timeEstimate}
-          urgency={urgency}
-          expireToggle={expireToggle}
-          onTaskChange={(e) => setTask(e.target.value)}
-          onTimeEstimateChange={(e) => setTimeEstimate(e.target.value)}
-          onUrgencyChange={(e) => setUrgency(e.target.value)}
-          onExpireToggleChange={(e) => setExpireToggle(e.target.checked)}
-          onAddTask={addTask}
-      />
-      <h1 className="labelPortal">{currentLabel}</h1>
-{currentLabel === 'Mission logs' && completedTasks.length > 0 && (
-    <button onClick={clearAllCompletedTasks} className="btn btn-danger clearMissions">Clear All</button>
-)}
-      <ul className="list-group task-list">
-    {displayedTasks.map((task) => (
-        <TaskItem 
-            key={task.timestamp}
+    )}
+    <audio ref={audioRef} src={soundFile} preload="auto"></audio>
+    <audio ref={completeAudioRef} src={completeSoundFile} preload="auto"></audio>
+
+    <LevelTracker experience={stars} />
+    {currentLabel !== 'Mission logs' && <HeaderHero />}
+    <Nav onNavClick={setCurrentLabel} />
+    {currentLabel !== 'Mission logs' && (
+        <TaskInputForm 
             task={task}
-            className={currentLabel === 'Mission logs' ? 'CompletedTask' : ''}
-            toggleTask={currentLabel !== 'Mission logs' ? () => toggleTask(tasks.indexOf(task)) : null}
+            timeEstimate={timeEstimate}
+            urgency={urgency}
+            expireToggle={expireToggle}
+            onTaskChange={(e) => setTask(e.target.value)}
+            onTimeEstimateChange={(e) => setTimeEstimate(e.target.value)}
+            onUrgencyChange={(e) => setUrgency(e.target.value)}
+            onExpireToggleChange={(e) => setExpireToggle(e.target.checked)}
+            onAddTask={addTask}
         />
-    ))}
-    {displayedTasks.length === 0 && <div>You have no missions in this roadmap.</div>}
-</ul>
+    )}
+    <h1 className="labelPortal">{currentLabel}</h1>
+    {currentLabel === 'Mission logs' && completedTasks.length > 0 && (
+        <button onClick={clearAllCompletedTasks} className="btn btn-danger">Clear All</button>
+    )}
+    <ul className="list-group task-list">
+        {displayedTasks.map((task) => (
+            <TaskItem 
+                key={task.timestamp}
+                task={task}
+                className={currentLabel === 'Mission logs' ? 'CompletedTask' : ''}
+                toggleTask={currentLabel !== 'Mission logs' ? () => toggleTask(tasks.indexOf(task)) : null}
+            />
+        ))}
+        {displayedTasks.length === 0 && <div>You have no missions in this roadmap.</div>}
+    </ul>
+</div>
 
-
-
-    </div>
   );
 };
 
