@@ -40,13 +40,27 @@ body {
   text-align: left !important;
 }
 .CompletedTask {
-  border: solid 1px #ffffff !important;
+  border: solid 1px #666666 !important;
   cursor: not-allowed !important;
 }
 .todoApp {
   width: 580px;
 }
+.missionStat {
+  padding: 16px;
+  border: solid 1px #333333;
+  box-sizing: border-box;
+  margin-top: 8px;
+  color: #dedede;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+}
 
+.missionStat div {
+  font-size: 16px !important;
+  font-weight: normal;
+}
 .mainCta {
   margin-top: 24px;
   margin-bottom: 64px;
@@ -146,9 +160,12 @@ ul {
   font-weight: 600;
   margin-bottom: 24px !important;
   position: relative;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
 }
 .task-list li:hover {
-  background-color: #1C221D !important;
+  background-color: #252C26 !important;
 }
 
 .todoApp {

@@ -88,7 +88,14 @@ const TodoList = () => {
 
     setTasks(prevTasks => {
         const newTasks = [...prevTasks];
-        const completedTask = { ...newTasks.splice(index, 1)[0], completed: true };
+        const starsIncrement = calculateStars(newTasks[index]);
+
+        const completedTask = {
+            ...newTasks.splice(index, 1)[0], 
+            completed: true,
+            completedAt: new Date(),   // Store completion time
+            starsEarned: starsIncrement   // Store stars earned
+        };
 
         // Move to completed tasks
         setCompletedTasks(prevCompleted => {
@@ -98,7 +105,6 @@ const TodoList = () => {
             return prevCompleted;
         });
 
-        const starsIncrement = calculateStars(completedTask);
         setStars(prevStars => prevStars + starsIncrement);
 
         return newTasks;
