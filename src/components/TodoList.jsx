@@ -6,6 +6,7 @@ import TaskInputForm from './TaskInputForm';
 import TaskItem from './TaskItem';
 import LevelTracker from './LevelTracker';
 import HeaderHero from './HeaderHero';
+import TaskUtilities from './TaskUtilities';
 import Nav from './Nav'; 
 import soundFile from './sound.wav';
 import completeSoundFile from './complete.wav';
